@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>基礎的なHTMLページ</title>
-    <link rel="stylesheet" href="metal.css">
-</head>
-<body>
-    <h1>こんにちは、世界！</h1>
-    <p>このページは、外部CSSファイル「metal.css」を使用してスタイルが適用されます。</p>
-</body>
-</html>
+/*
+ * metal.css - 基礎的なスタイルシート
+ */
+
+/* body全体に基本的なフォントを設定することもできますが、
+ * 今回は文字サイズ指定の練習のため省略します。
+ * {
+ * font-family: Arial, sans-serif;
+ * }
+ */
+
+/* --- H1 スタイル --- */
+h1 {
+    /* h1要素の文字サイズを非常に大きく設定 */
+    font-size: 2.5em; 
+}
+
+/* --- H2 スタイル --- */
+h2 {
+    /* h2要素の文字サイズをh1より少し小さく設定 */
+    font-size: 1.8em; 
+}
+
+/* --- P スタイル --- */
+p {
+    /* p要素（段落）の文字サイズを標準的なサイズに設定 */
+    font-size: 1.1em; 
+}
