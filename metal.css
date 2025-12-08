@@ -1,5 +1,5 @@
 /*
- * metal.css - 縦書き見出しと本文が重ならない完全なスタイルシート
+ * metal.css - 縦書き見出しとブログ形式の本文スタイルシート
  */
 
 /* ========================== */
@@ -7,13 +7,9 @@
 /* ========================== */
 
 body {
-    /* デフォルトのマージンをリセット */
     margin: 0;
-    /* 本文エリアの背景は白に設定 */
     background-color: white; 
-    /* 標準フォントの指定 */
     font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-    /* 本文の文字色 */
     color: #333333; 
 }
 
@@ -21,19 +17,14 @@ body {
 /* 1. 基本的な文字サイズ設定 */
 /* ========================== */
 
-h1 {
-    /* h1のサイズは縦書きエリアの個別設定で上書きされます */
-    font-size: 2.5em; 
-    margin: 0; /* 縦書きエリアに配置するためマージンをリセット */
-}
-
+h1 { /* h1は縦書きエリアで上書きされる */ margin: 0; }
 h2 {
     font-size: 1.8em; 
-    /* デフォルトのマージンをリセットし、.main-content側でパディングを適用します */
-    margin-top: 0; 
-    margin-bottom: 0;
+    /* h2の下に間隔を空ける */
+    margin-bottom: 20px; 
+    border-bottom: 2px solid #cccccc; /* 見出しの下線 */
+    padding-bottom: 5px;
 }
-
 p {
     font-size: 1.1em; 
     margin-top: 1em; 
@@ -44,36 +35,27 @@ p {
 /* ========================== */
 /* 2. 縦書き見出しエリア (h1) */
 /* ========================== */
+/* このエリアは本文エリアと重ならないように左端に固定されます */
 
 .vertical-header-container {
-    /* 【重なり防止の鍵】左上端に固定 */
     position: fixed; 
     top: 0;
     left: 0;
-    
-    /* 背景、高さ、幅の設定 */
     background-color: skyblue; 
-    /* 縦書きエリアの幅（重要：本文のmargin-leftの基準となる）*/
     width: 60px; 
-    height: 100vh; /* 画面の高さ全体 */
-    
-    /* h1を中央に配置 */
+    height: 100vh; 
     display: flex;
     align-items: center; 
     justify-content: center; 
-    z-index: 10; /* 他の要素より手前に表示 */
+    z-index: 10; 
 }
 
-/* h1タグ自体へのスタイル（上から下に読めるようにする設定） */
 .vertical-header-container h1 {
     color: white; 
     font-size: 2.0em;
     margin: 0;
-
-    /* 縦書きモード */
     writing-mode: vertical-rl;
-    
-    /* 文字を上から下に読めるように、90度回転させて正立させる */
+    /* 上から下に読めるように90度回転 */
     transform: rotate(90deg); 
     white-space: nowrap; 
     width: fit-content;
@@ -81,15 +63,32 @@ p {
 
 
 /* ========================== */
-/* 3. 本文エリア (h2, p) */
+/* 3. 本文エリア (h2, p, ブログ項目) */
 /* ========================== */
 
 .main-content {
-    /* 【重なり防止の鍵】縦書き見出しの幅（60px）以上の左マージンを設定 */
-    /* これにより、h1のエリアと本文エリアが分離されます。 */
+    /* 【重なり防止】縦書き見出しの幅を避けるための左マージン */
     margin-left: 80px; 
-    
-    /* 本文内側の余白 */
     padding: 20px;
-    padding-top: 40px; /* 画面上端に近すぎないように調整 */
+    padding-top: 40px; 
+}
+
+/* ブログの項目を区切るためのスタイル */
+.blog-item {
+    margin-bottom: 30px; /* 各項目間にスペースを確保 */
+    padding: 15px;
+    border: 1px solid #eeeeee; /* 項目の境界線 */
+    border-radius: 5px;
+    background-color: #fafafa; /* 項目ごとにわずかに背景色を付ける */
+}
+
+/* ブログ項目内の見出し p タグに対するスタイル */
+.blog-item .blog-heading {
+    font-size: 1.3em; /* 通常のpより大きく */
+    font-weight: bold; /* 太字 */
+    color: #0077b6; /* 濃い青色で強調 */
+    margin-top: 0; /* 上部のマージンをリセット */
+    margin-bottom: 10px; /* 下部にスペースを確保 */
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #cccccc; /* 見出しと本文の間に点線 */
 }
