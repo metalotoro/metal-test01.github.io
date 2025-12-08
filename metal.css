@@ -42,31 +42,55 @@ p {
 /* 2. 縦書き見出しエリア (h1) の装飾 */
 /* ========================== */
 
+/*
+ * metal.css - 縦書き見出しを回転させない修正版
+ */
+
+/* ... (body, h2, p, .main-content などの装飾スタイルは省略) ... */
+
+
+/* ========================== */
+/* 2. 縦書き見出しエリア (h1) の装飾 */
+/* ========================== */
+
 .vertical-header-container {
     position: fixed; 
     top: 0;
     left: 0;
-    /* 背景色をブランドカラーのように少し暗めの水色にする */
     background-color: #3f90b5; 
-    width: 70px; /* 幅を少し広げる */
+    width: 70px; 
     height: 100vh; 
     display: flex;
-    align-items: center; 
+    /* justify-content: center; を使用すると、文字の行全体を左右中央に配置します */
     justify-content: center; 
+    /* align-items: center; を使用すると、縦書きの文字列全体を上下中央に配置します */
+    align-items: center; 
     z-index: 10; 
-    /* ページの区切りとして、わずかな影を付ける */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
 }
 
 .vertical-header-container h1 {
     color: white; 
-    font-size: 2.4em; /* サイズを強調 */
-    font-weight: 600; /* 太くする */
+    font-size: 2.4em; 
+    font-weight: 600; 
+    margin: 0;
+    
+    /* ---------------------------------------------------- */
+    /* 【修正ポイント1】縦書きモードを設定 */
+    /* vertical-rl: 縦書き、行が右から左へ流れる (最も一般的な縦書き) */
     writing-mode: vertical-rl;
-    transform: rotate(90deg); 
+    
+    /* 【修正ポイント2】回転を完全に削除 */
+    transform: none; 
+    /* ---------------------------------------------------- */
+
+    /* transform: none; を適用すると、文字自体は90度横倒しの状態で表示されます。 */
+    /* これが「回転させない」状態です。 */
     white-space: nowrap; 
     width: fit-content;
 }
+
+/* ... (本文エリアの装飾スタイルは省略) ... */
 
 
 /* ========================== */
