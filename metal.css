@@ -1,50 +1,97 @@
-/* metal.css の内容 */
+/*
+ * metal.css - 市川市ページ用スタイルシート
+ */
+
+/* ========================== */
+/* 0. 全体（body）の基本設定 */
+/* ========================== */
 
 body {
+    /* デフォルトのマージンをリセット */
     margin: 0;
+    /* 本文エリアの背景は白に設定 */
     background-color: white; 
-    font-family: Arial, sans-serif;
+    /* 標準フォントの指定 */
+    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    /* 本文の文字色 */
     color: #333333; 
 }
 
-/* 文字サイズの指定 */
+/* ========================== */
+/* 1. 基本的な文字サイズ設定 */
+/* ========================== */
+
+/* h1要素の文字サイズ */
 h1 {
-    font-size: 2.5em; 
-}
-h2 {
-    font-size: 1.8em; 
-}
-p {
-    font-size: 1.1em; 
+    font-size: 2.5em; /* 標準的な文字サイズより大きく */
+    margin-top: 0.67em; /* h1デフォルトのマージンを保持 */
+    margin-bottom: 0.67em;
 }
 
-/* 縦書き見出しのスタイル */
+/* h2要素の文字サイズ */
+h2 {
+    font-size: 1.8em; /* h1より少し小さく */
+    margin-top: 0.83em; /* h2デフォルトのマージンを保持 */
+    margin-bottom: 0.83em;
+}
+
+/* p要素（段落）の文字サイズ */
+p {
+    font-size: 1.1em; /* 読みやすいように標準より少し大きく */
+    margin-top: 1em; /* pデフォルトのマージンを保持 */
+    margin-bottom: 1em;
+}
+
+
+/* ========================== */
+/* 2. 縦書き見出しの専用スタイル */
+/* ========================== */
+
+/* 縦書き見出しを囲むコンテナ (HTML: <div class="vertical-header-container">) */
 .vertical-header-container {
+    /* 画面の左上端に固定 */
     position: fixed; 
     top: 0;
     left: 0;
+    
+    /* 水色の背景、画面いっぱいの高さ、見出しの幅 */
     background-color: skyblue; 
-    width: 60px; 
-    height: 100vh; 
+    width: 60px; /* 見出しエリアの幅 */
+    height: 100vh; /* 画面の高さ全体 */
+    
+    /* h1を縦書きにし、コンテナ内で中央に配置するためのFlexbox設定 */
     display: flex;
-    align-items: center; 
-    justify-content: center; 
-    z-index: 10; 
+    align-items: center; /* 縦方向の中央寄せ */
+    justify-content: center; /* 横方向の中央寄せ */
+    z-index: 10; /* 他の要素より手前に表示 */
 }
 
+/* コンテナ内のh1タグに対するスタイル */
 .vertical-header-container h1 {
+    /* 文字の色を白色に設定 */
     color: white; 
     
-    /* ここが縦書きの鍵です */
+    /* 【縦書きの鍵】縦書きモードを有効化 */
     writing-mode: vertical-rl;
+    
+    /* 【「下から読める」の鍵】文字を180度回転させて正立させる */
     transform: rotate(180deg); 
     
+    /* h1のデフォルトマージンをリセット（コンテナのFlexboxで制御するため） */
     margin: 0;
+    
+    /* サイズを個別調整 */
     font-size: 2.0em; 
 }
 
-/* 本文エリアの調整 */
+
+/* ========================== */
+/* 3. 本文エリアの調整 */
+/* ========================== */
+
+/* 本文を囲むコンテナ (HTML: <div class="main-content">) */
 .main-content {
-    margin-left: 80px; 
+    /* 縦書き見出しの幅の分だけ、本文全体を右にずらして重なりを防ぐ */
+    margin-left: 80px; /* 見出しの幅 (60px) よりも少し大きく */
     padding: 20px;
 }
