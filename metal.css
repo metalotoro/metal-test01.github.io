@@ -1,5 +1,5 @@
 /*
- * metal.css - 洗練されたモダンデザイン（最終調整）
+ * metal.css - 最終デザイン（回転なし縦書き、右サイドバー、モダンカード）
  */
 
 /* ========================== */
@@ -7,32 +7,26 @@
 /* ========================== */
 
 body {
-    /* 背景色をより落ち着いた白に近い色に */
     background-color: #f8f9fa; 
     margin: 0;
-    font-family: 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif; /* フォントをよりモダンに */
-    color: #343a40; /* テキストカラーを濃いグレーに */
-    overflow-x: hidden; 
+    font-family: 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif; 
+    color: #343a40; 
+    overflow-x: hidden; /* 横スクロールの発生を抑える */
 }
 
-/* ========================== */
-/* 1. 基本的な文字スタイル */
-/* ========================== */
-
+/* 共通スタイル */
 h1 { margin: 0; }
-
 h2 {
-    font-size: 2.4em; /* より大きく、強調 */
-    color: #495057; /* 落ち着いた見出し色 */
-    border-bottom: 2px solid #e9ecef; /* 下線を細く、モダンに */
+    font-size: 2.4em; 
+    color: #495057; 
+    border-bottom: 2px solid #e9ecef; 
     padding-bottom: 12px; 
     margin-bottom: 30px; 
-    margin-top: 50px; /* 上部マージンを広げ、区切りを明確に */
+    margin-top: 50px; 
     font-weight: 300; 
 }
-
 p {
-    font-size: 1.05em; /* 読みやすさを重視 */
+    font-size: 1.05em; 
     line-height: 1.7; 
     margin-top: 1em; 
     margin-bottom: 1em;
@@ -40,51 +34,97 @@ p {
 
 
 /* ========================== */
-/* 2. 縦書き見出しエリア (h1) - 固定バー */
+/* 1. 左側固定バー (.vertical-header-container) */
 /* ========================== */
 
 .vertical-header-container {
     position: fixed; 
     top: 0;
     left: 0;
-    background-color: #3f90b5; 
-    width: 60px; 
+    background-color: #3b5998; /* 深みのあるブルー */
+    width: 65px; 
     height: 100vh; 
+    
     display: flex;
     align-items: center; 
     justify-content: center; 
-    z-index: 10; 
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+    z-index: 100; 
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.15); 
 }
 
 .vertical-header-container h1 {
     color: white; 
-    font-size: 2.2em; 
-    font-weight: 600; 
-    writing-mode: vertical-rl;
-    transform: rotate(90deg); 
-    white-space: nowrap; 
-}
-
-.vertical-header-container h1 {
-    color: white; 
-    font-size: 2.5em; /* さらに大きく強調 */
-    font-weight: 700; /* 太字 */
+    font-size: 2.5em; 
+    font-weight: 700; 
+    margin: 0;
     
+    /* 【重要】縦書きを設定し、回転を解除 */
     writing-mode: vertical-rl;
-    transform: rotate(90deg); 
-    letter-spacing: 0.1em; /* 文字間隔を広げておしゃれに */
+    transform: none; 
+    
+    letter-spacing: 0.1em; 
 }
 
 
 /* ========================== */
-/* 3. 本文エリア (メインコンテンツ) */
+/* 2. 右側固定サイドバー (.sidebar-right) */
+/* ========================== */
+
+.sidebar-right {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    width: 200px; 
+    height: 100vh;
+    padding: 20px 15px;
+    background-color: #ffffff; 
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 90;
+    overflow-y: auto; 
+}
+
+.sidebar-right h3 {
+    color: #3b5998;
+    font-size: 1.1em;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+
+.sidebar-right ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.sidebar-right a {
+    color: #5a6b7c;
+    text-decoration: none;
+    font-size: 0.95em;
+    display: block;
+    padding: 5px 0;
+}
+
+.sidebar-right .city-logo {
+    max-width: 100%; 
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+}
+
+
+/* ========================== */
+/* 3. 中央本文エリア (.main-content) */
 /* ========================== */
 
 .main-content {
-    margin-left: 100px; /* バーの幅に合わせて広めに調整 */
-    padding: 40px 60px; /* 広い余白でゆったりと */
-    max-width: 850px; /* 読みやすい最大幅を設定 */
+    /* 左バー (65px) と右バー (200px) の両方を避ける調整 */
+    margin-left: 100px; 
+    margin-right: 230px; /* 右バーの幅 (200px) + 余白 */
+    padding: 40px 20px; 
+    max-width: none; 
 }
 
 /* 導入文の装飾 */
@@ -92,40 +132,35 @@ p {
     font-size: 1.3em;
     font-weight: 600;
     color: #343a40; 
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     padding-bottom: 10px;
     border-bottom: 2px dashed #e9ecef;
 }
 
 /* ========================== */
-/* 4. ブログ項目 (blog-item) - フローティングカード */
+/* 4. ブログ項目 (blog-item) - カード形式 */
 /* ========================== */
 
 .blog-item {
-    margin-bottom: 30px; /* 間隔を広げる */
-    padding: 30px; /* カード内の余白を広げる */
-    
+    margin-bottom: 25px; 
+    padding: 20px; 
     background-color: white; 
-    border-radius: 12px; /* 角丸を大きく、モダンに */
-    
-    /* 影を深く、立体感のあるフローティングデザインに */
+    border-radius: 8px; 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* ホバー時のアニメーションカーブを変更 */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ホバー時の装飾（より滑らかに、深く浮き上がる） */
 .blog-item:hover {
-    transform: translateY(-8px); /* 浮き上がりを強調 */
+    transform: translateY(-8px); 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ブログ項目内の見出し p タグ (.blog-heading) の装飾 */
 .blog-item .blog-heading {
-    font-size: 1.5em; /* 見出しを強調 */
+    font-size: 1.3em; 
     font-weight: 700;
-    color: #3b5998; /* サイドバーの色と統一 */
+    color: #3b5998; 
     margin-top: 0; 
-    margin-bottom: 15px; 
-    padding-bottom: 8px;
-    border-bottom: 3px solid #f0f2f5; /* 濃い下線 */
+    margin-bottom: 10px; 
+    padding-bottom: 5px;
+    border-bottom: 3px solid #f0f2f5; 
 }
