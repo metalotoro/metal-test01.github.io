@@ -1,13 +1,12 @@
 /*
- * metal.css - 最終デザイン（左バー固定、モダンブログ形式）
+ * metal.css - ブログ項目統一デザイン
  */
 
 /* ========================== */
-/* 0. 全体（body）の基本設定 */
+/* 0. 全体（body）とリセット */
 /* ========================== */
 
 body {
-    /* 背景色をわずかにグレーにして清潔感を出す */
     background-color: #f5f7fa; 
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -22,16 +21,16 @@ h1 { margin: 0; }
 
 h2 {
     font-size: 2.0em; 
-    color: #5a6b7c; /* 落ち着いたダークブルー */
+    color: #5a6b7c; 
     border-bottom: 3px solid #d4e0eb; 
     padding-bottom: 10px; 
     margin-bottom: 25px; 
-    margin-top: 0; 
+    margin-top: 40px; /* h2の上部にスペースを追加 */
     font-weight: 300; 
 }
 
 p {
-    font-size: 1.0em; /* 標準の16pxに近づけ、画面に収まりやすくする */
+    font-size: 1.0em; 
     line-height: 1.6; 
     margin-top: 0.8em; 
     margin-bottom: 0.8em;
@@ -43,15 +42,12 @@ p {
 /* ========================== */
 
 .vertical-header-container {
-    /* 左端に固定 */
     position: fixed; 
     top: 0;
     left: 0;
-    
-    background-color: #3f90b5; /* ブランドカラーのような青 */
-    width: 60px; /* バーの幅 */
-    height: 100vh; /* 画面いっぱいの高さ */
-    
+    background-color: #3f90b5; 
+    width: 60px; 
+    height: 100vh; 
     display: flex;
     align-items: center; 
     justify-content: center; 
@@ -63,12 +59,9 @@ p {
     color: white; 
     font-size: 2.2em; 
     font-weight: 600; 
-    
-    /* 縦書きと90度回転で正立（下から読める状態）にする */
     writing-mode: vertical-rl;
     transform: rotate(90deg); 
     white-space: nowrap; 
-    width: fit-content;
 }
 
 
@@ -77,52 +70,25 @@ p {
 /* ========================== */
 
 .main-content {
-    /* 【重なり防止】h1バーの幅を避けるための左マージン */
+    /* h1バーの幅を避けるための左マージン */
     margin-left: 80px; 
     padding: 20px 40px; 
     padding-top: 30px; 
     max-width: 750px; 
 }
 
-/* 導入文の装飾 (.section-title) */
+/* 導入文の装飾 */
 .section-title {
     font-size: 1.2em;
     font-weight: bold;
-    color: #3f90b5;
-    margin-bottom: 25px;
+    color: #333333; /* 目立ちすぎないように色を調整 */
+    margin-bottom: 30px;
     padding-bottom: 5px;
     border-bottom: 1px dashed #d4e0eb;
 }
 
 /* ========================== */
-/* 4. 新しい情報セクションの装飾 (.info-section) */
-/* ========================== */
-
-.info-section {
-    margin-bottom: 20px; 
-    padding: 15px;
-    border-left: 5px solid #a9c6d8; /* 左側に青いラインを入れて強調 */
-    background-color: #fcfcfc; 
-    border-radius: 4px;
-}
-
-.info-section .info-heading {
-    font-size: 1.15em;
-    font-weight: 600;
-    color: #3f90b5; 
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-
-.info-section .info-detail {
-    font-size: 0.95em; 
-    color: #666666;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* ========================== */
-/* 5. ブログ項目 (blog-item) の装飾 */
+/* 4. ブログ項目 (blog-item) の装飾 (統一デザイン) */
 /* ========================== */
 
 .blog-item {
@@ -143,7 +109,7 @@ p {
 .blog-item .blog-heading {
     font-size: 1.3em; 
     font-weight: 600;
-    color: #3f90b5; 
+    color: #3f90b5; /* 見出しをブランドカラーに */
     margin-top: 0; 
     margin-bottom: 10px; 
     padding-bottom: 5px;
