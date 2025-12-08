@@ -1,5 +1,5 @@
 /*
- * metal.css - モダンブログデザイン (項目統一版)
+ * metal.css - モダンブログデザイン（最終調整版）
  */
 
 /* ========================== */
@@ -10,10 +10,8 @@ body {
     /* 背景色をわずかにグレーにして清潔感を出す */
     background-color: #f5f7fa; 
     margin: 0;
-    /* モダンなフォントを指定 */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     color: #333333; 
-    /* スクロールバーのデザインを改善するプロパティ（一部ブラウザのみ） */
     overflow-x: hidden; 
 }
 
@@ -29,13 +27,13 @@ h2 {
     border-bottom: 3px solid #d4e0eb; /* 優しい下線 */
     padding-bottom: 10px; 
     margin-bottom: 25px; 
-    margin-top: 40px; 
+    margin-top: 40px; /* h2の上部にスペース */
     font-weight: 300; /* 細めのフォントウェイト */
 }
 
 p {
-    font-size: 1.0em; /* 画面に収まりやすいサイズ */
-    line-height: 1.6; /* 行間を広げて読みやすく */
+    font-size: 1.0em; 
+    line-height: 1.6; 
     margin-top: 0.8em; 
     margin-bottom: 0.8em;
 }
@@ -96,24 +94,24 @@ p {
 }
 
 /* ========================== */
-/* 4. ブログ項目 (blog-item) の装飾 (統一デザイン) */
+/* 4. ブログ項目 (blog-item) の装飾 - カード形式 */
 /* ========================== */
 
 .blog-item {
     margin-bottom: 25px; 
     padding: 20px; 
-    /* カードデザインの核となるスタイル */
+    /* 【カードの核】背景色、角丸、影でカード化 */
     background-color: white; 
-    border-radius: 8px; /* 角を丸く */
-    /* 立体感を出すための繊細な影 */
+    border-radius: 8px; 
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07); 
-    /* ホバー時のスムーズなアニメーション */
+    
+    /* ホバーアニメーション設定 */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* ホバー時の装飾（マウスオーバーで少し浮かび上がる） */
+/* ホバー時の装飾（マウスオーバーで浮き上がる） */
 .blog-item:hover {
-    transform: translateY(-5px); /* 浮き上がりを強調 */
+    transform: translateY(-5px); 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
@@ -121,9 +119,9 @@ p {
 .blog-item .blog-heading {
     font-size: 1.3em; 
     font-weight: 600;
-    color: #3f90b5; /* 見出しの色をブランドカラーに統一 */
+    color: #3f90b5; /* 見出しをブランドカラーに */
     margin-top: 0; 
     margin-bottom: 10px; 
     padding-bottom: 5px;
-    border-bottom: 2px solid #e0f2f7; /* 少し太めの境界線 */
+    border-bottom: 2px solid #e0f2f7; 
 }
