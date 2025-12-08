@@ -1,5 +1,5 @@
 /*
- * metal.css - モダンブログデザイン（最終調整版）
+ * metal.css - 洗練されたモダンデザイン（最終調整）
  */
 
 /* ========================== */
@@ -7,121 +7,119 @@
 /* ========================== */
 
 body {
-    /* 背景色をわずかにグレーにして清潔感を出す */
-    background-color: #f5f7fa; 
+    /* 背景色をより落ち着いた白に近い色に */
+    background-color: #f8f9fa; 
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    color: #333333; 
+    font-family: 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif; /* フォントをよりモダンに */
+    color: #343a40; /* テキストカラーを濃いグレーに */
     overflow-x: hidden; 
 }
 
 /* ========================== */
-/* 1. 基本的な文字サイズと共通スタイル */
+/* 1. 基本的な文字スタイル */
 /* ========================== */
 
 h1 { margin: 0; }
 
 h2 {
-    font-size: 2.0em; 
-    color: #5a6b7c; /* 落ち着いたダークブルー */
-    border-bottom: 3px solid #d4e0eb; /* 優しい下線 */
-    padding-bottom: 10px; 
-    margin-bottom: 25px; 
-    margin-top: 40px; /* h2の上部にスペース */
-    font-weight: 300; /* 細めのフォントウェイト */
+    font-size: 2.4em; /* より大きく、強調 */
+    color: #495057; /* 落ち着いた見出し色 */
+    border-bottom: 2px solid #e9ecef; /* 下線を細く、モダンに */
+    padding-bottom: 12px; 
+    margin-bottom: 30px; 
+    margin-top: 50px; /* 上部マージンを広げ、区切りを明確に */
+    font-weight: 300; 
 }
 
 p {
-    font-size: 1.0em; 
-    line-height: 1.6; 
-    margin-top: 0.8em; 
-    margin-bottom: 0.8em;
+    font-size: 1.05em; /* 読みやすさを重視 */
+    line-height: 1.7; 
+    margin-top: 1em; 
+    margin-bottom: 1em;
 }
 
 
 /* ========================== */
-/* 2. 縦書き見出しエリア (h1) - 固定サイドバー */
+/* 2. 縦書き見出しエリア (h1) - デザイナーズバー */
 /* ========================== */
 
 .vertical-header-container {
-    /* 左端に固定 */
     position: fixed; 
     top: 0;
     left: 0;
-    background-color: #3f90b5; /* ブランドカラーのような青 */
-    width: 60px; /* バーの幅 */
+    /* 色を深みのあるインディゴブルーに */
+    background-color: #3b5998; 
+    width: 65px; /* 幅を微調整 */
     height: 100vh; 
     
     display: flex;
     align-items: center; 
     justify-content: center; 
-    z-index: 10; 
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+    z-index: 100; /* 最前面に */
+    /* 影を深めにして、コンテンツとの境界を強調 */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.15); 
 }
 
 .vertical-header-container h1 {
     color: white; 
-    font-size: 2.2em; 
-    font-weight: 600; 
+    font-size: 2.5em; /* さらに大きく強調 */
+    font-weight: 700; /* 太字 */
     
-    /* 縦書きと90度回転で正立（下から読める状態） */
     writing-mode: vertical-rl;
     transform: rotate(90deg); 
-    white-space: nowrap; 
+    letter-spacing: 0.1em; /* 文字間隔を広げておしゃれに */
 }
 
 
 /* ========================== */
-/* 3. 本文エリア (メインコンテンツ) の装飾 */
+/* 3. 本文エリア (メインコンテンツ) */
 /* ========================== */
 
 .main-content {
-    /* h1バーの幅を避けるための左マージン */
-    margin-left: 80px; 
-    padding: 20px 40px; 
-    padding-top: 30px; 
-    max-width: 750px; 
+    margin-left: 100px; /* バーの幅に合わせて広めに調整 */
+    padding: 40px 60px; /* 広い余白でゆったりと */
+    max-width: 850px; /* 読みやすい最大幅を設定 */
 }
 
 /* 導入文の装飾 */
 .section-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333333; 
-    margin-bottom: 30px;
-    padding-bottom: 5px;
-    border-bottom: 1px dashed #d4e0eb;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #343a40; 
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #e9ecef;
 }
 
 /* ========================== */
-/* 4. ブログ項目 (blog-item) の装飾 - カード形式 */
+/* 4. ブログ項目 (blog-item) - フローティングカード */
 /* ========================== */
 
 .blog-item {
-    margin-bottom: 25px; 
-    padding: 20px; 
-    /* 【カードの核】背景色、角丸、影でカード化 */
-    background-color: white; 
-    border-radius: 8px; 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07); 
+    margin-bottom: 30px; /* 間隔を広げる */
+    padding: 30px; /* カード内の余白を広げる */
     
-    /* ホバーアニメーション設定 */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: white; 
+    border-radius: 12px; /* 角丸を大きく、モダンに */
+    
+    /* 影を深く、立体感のあるフローティングデザインに */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* ホバー時のアニメーションカーブを変更 */
 }
 
-/* ホバー時の装飾（マウスオーバーで浮き上がる） */
+/* ホバー時の装飾（より滑らかに、深く浮き上がる） */
 .blog-item:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px); /* 浮き上がりを強調 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* ブログ項目内の見出し p タグ (.blog-heading) の装飾 */
 .blog-item .blog-heading {
-    font-size: 1.3em; 
-    font-weight: 600;
-    color: #3f90b5; /* 見出しをブランドカラーに */
+    font-size: 1.5em; /* 見出しを強調 */
+    font-weight: 700;
+    color: #3b5998; /* サイドバーの色と統一 */
     margin-top: 0; 
-    margin-bottom: 10px; 
-    padding-bottom: 5px;
-    border-bottom: 2px solid #e0f2f7; 
+    margin-bottom: 15px; 
+    padding-bottom: 8px;
+    border-bottom: 3px solid #f0f2f5; /* 濃い下線 */
 }
