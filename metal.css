@@ -1,5 +1,5 @@
 /*
- * metal.css - ブログ項目統一デザイン
+ * metal.css - モダンブログデザイン (項目統一版)
  */
 
 /* ========================== */
@@ -7,10 +7,14 @@
 /* ========================== */
 
 body {
+    /* 背景色をわずかにグレーにして清潔感を出す */
     background-color: #f5f7fa; 
     margin: 0;
+    /* モダンなフォントを指定 */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     color: #333333; 
+    /* スクロールバーのデザインを改善するプロパティ（一部ブラウザのみ） */
+    overflow-x: hidden; 
 }
 
 /* ========================== */
@@ -21,33 +25,35 @@ h1 { margin: 0; }
 
 h2 {
     font-size: 2.0em; 
-    color: #5a6b7c; 
-    border-bottom: 3px solid #d4e0eb; 
+    color: #5a6b7c; /* 落ち着いたダークブルー */
+    border-bottom: 3px solid #d4e0eb; /* 優しい下線 */
     padding-bottom: 10px; 
     margin-bottom: 25px; 
-    margin-top: 40px; /* h2の上部にスペースを追加 */
-    font-weight: 300; 
+    margin-top: 40px; 
+    font-weight: 300; /* 細めのフォントウェイト */
 }
 
 p {
-    font-size: 1.0em; 
-    line-height: 1.6; 
+    font-size: 1.0em; /* 画面に収まりやすいサイズ */
+    line-height: 1.6; /* 行間を広げて読みやすく */
     margin-top: 0.8em; 
     margin-bottom: 0.8em;
 }
 
 
 /* ========================== */
-/* 2. 縦書き見出しエリア (h1) - 固定バー */
+/* 2. 縦書き見出しエリア (h1) - 固定サイドバー */
 /* ========================== */
 
 .vertical-header-container {
+    /* 左端に固定 */
     position: fixed; 
     top: 0;
     left: 0;
-    background-color: #3f90b5; 
-    width: 60px; 
+    background-color: #3f90b5; /* ブランドカラーのような青 */
+    width: 60px; /* バーの幅 */
     height: 100vh; 
+    
     display: flex;
     align-items: center; 
     justify-content: center; 
@@ -59,6 +65,8 @@ p {
     color: white; 
     font-size: 2.2em; 
     font-weight: 600; 
+    
+    /* 縦書きと90度回転で正立（下から読める状態） */
     writing-mode: vertical-rl;
     transform: rotate(90deg); 
     white-space: nowrap; 
@@ -81,7 +89,7 @@ p {
 .section-title {
     font-size: 1.2em;
     font-weight: bold;
-    color: #333333; /* 目立ちすぎないように色を調整 */
+    color: #333333; 
     margin-bottom: 30px;
     padding-bottom: 5px;
     border-bottom: 1px dashed #d4e0eb;
@@ -94,24 +102,28 @@ p {
 .blog-item {
     margin-bottom: 25px; 
     padding: 20px; 
-    /* カードデザイン */
+    /* カードデザインの核となるスタイル */
     background-color: white; 
-    border-radius: 8px; 
+    border-radius: 8px; /* 角を丸く */
+    /* 立体感を出すための繊細な影 */
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07); 
-    transition: transform 0.3s ease-in-out;
+    /* ホバー時のスムーズなアニメーション */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+/* ホバー時の装飾（マウスオーバーで少し浮かび上がる） */
 .blog-item:hover {
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* 浮き上がりを強調 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
+/* ブログ項目内の見出し p タグ (.blog-heading) の装飾 */
 .blog-item .blog-heading {
     font-size: 1.3em; 
     font-weight: 600;
-    color: #3f90b5; /* 見出しをブランドカラーに */
+    color: #3f90b5; /* 見出しの色をブランドカラーに統一 */
     margin-top: 0; 
     margin-bottom: 10px; 
     padding-bottom: 5px;
-    border-bottom: 1px dashed #e0f2f7; 
+    border-bottom: 2px solid #e0f2f7; /* 少し太めの境界線 */
 }
