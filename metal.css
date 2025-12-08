@@ -40,24 +40,30 @@ p {
 
 
 /* ========================== */
-/* 2. 縦書き見出しエリア (h1) - デザイナーズバー */
+/* 2. 縦書き見出しエリア (h1) - 固定バー */
 /* ========================== */
 
 .vertical-header-container {
     position: fixed; 
     top: 0;
     left: 0;
-    /* 色を深みのあるインディゴブルーに */
-    background-color: #3b5998; 
-    width: 65px; /* 幅を微調整 */
+    background-color: #3f90b5; 
+    width: 60px; 
     height: 100vh; 
-    
     display: flex;
     align-items: center; 
     justify-content: center; 
-    z-index: 100; /* 最前面に */
-    /* 影を深めにして、コンテンツとの境界を強調 */
-    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.15); 
+    z-index: 10; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+}
+
+.vertical-header-container h1 {
+    color: white; 
+    font-size: 2.2em; 
+    font-weight: 600; 
+    writing-mode: vertical-rl;
+    transform: rotate(90deg); 
+    white-space: nowrap; 
 }
 
 .vertical-header-container h1 {
