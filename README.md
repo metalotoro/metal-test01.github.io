@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>縦書き見出しのページ</title>
+    <title>市川市の魅力</title>
     <link rel="stylesheet" href="metal.css">
 </head>
 <body>
-    <div class="vertical-header-container">
-        <h1>下から読んでも市川市</h1>
-    </div>
+    <h1>☟下から読んでも市川市☝</h1>
+    
+    <p>こんにちは！市川市の魅力をお伝えします！</p>
 
-    <div class="main-content">
-        <h2>本文見出し</h2>
-        <p>ここは本文のエリアです。このテキストは白色背景の領域に表示されます。</p>
-        <p>画面をスクロールしても、左端の「下から読んでも市川市」という見出しは固定されたままです。</p>
-    </div>
+    <h2>市川市の良いところ🐓</h2>
+    
+    <p>市川市は鳥の形🤩</p>
+    
+    <p>市川市は都心へのアクセスがすごい</p>
 </body>
 </html>
