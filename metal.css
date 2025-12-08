@@ -1,5 +1,5 @@
 /*
- * metal.css - 縦書き見出しとブログ形式の本文スタイルシート
+ * metal.css - おしゃれなブログ風デザイン
  */
 
 /* ========================== */
@@ -7,9 +7,10 @@
 /* ========================== */
 
 body {
+    /* 背景色をわずかにグレーにして清潔感を出す */
+    background-color: #f5f7fa; 
     margin: 0;
-    background-color: white; 
-    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* モダンなフォント */
     color: #333333; 
 }
 
@@ -17,45 +18,51 @@ body {
 /* 1. 基本的な文字サイズ設定 */
 /* ========================== */
 
-h1 { /* h1は縦書きエリアで上書きされる */ margin: 0; }
+h1 { /* 縦書きエリアで上書きされるため、ここでは主にリセット */ margin: 0; }
+
 h2 {
-    font-size: 1.8em; 
-    /* h2の下に間隔を空ける */
-    margin-bottom: 20px; 
-    border-bottom: 2px solid #cccccc; /* 見出しの下線 */
-    padding-bottom: 5px;
+    font-size: 2.2em;
+    color: #5a6b7c; /* 落ち着いたダークブルー */
+    border-bottom: 3px solid #d4e0eb; /* 太めの優しい下線 */
+    padding-bottom: 15px;
+    margin-bottom: 30px; 
+    margin-top: 0; 
+    font-weight: 300; /* 細めのフォントウェイトでおしゃれに */
 }
+
 p {
-    font-size: 1.1em; 
+    font-size: 1.05em; 
+    line-height: 1.7; /* 行間を広げて読みやすくする */
     margin-top: 1em; 
     margin-bottom: 1em;
 }
 
 
 /* ========================== */
-/* 2. 縦書き見出しエリア (h1) */
+/* 2. 縦書き見出しエリア (h1) の装飾 */
 /* ========================== */
-/* このエリアは本文エリアと重ならないように左端に固定されます */
 
 .vertical-header-container {
     position: fixed; 
     top: 0;
     left: 0;
-    background-color: skyblue; 
-    width: 60px; 
+    /* 背景色をブランドカラーのように少し暗めの水色にする */
+    background-color: #3f90b5; 
+    width: 70px; /* 幅を少し広げる */
     height: 100vh; 
     display: flex;
     align-items: center; 
     justify-content: center; 
     z-index: 10; 
+    /* ページの区切りとして、わずかな影を付ける */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
 }
 
 .vertical-header-container h1 {
     color: white; 
-    font-size: 2.0em;
-    margin: 0;
+    font-size: 2.4em; /* サイズを強調 */
+    font-weight: 600; /* 太くする */
     writing-mode: vertical-rl;
-    /* 上から下に読めるように90度回転 */
     transform: rotate(90deg); 
     white-space: nowrap; 
     width: fit-content;
@@ -63,32 +70,42 @@ p {
 
 
 /* ========================== */
-/* 3. 本文エリア (h2, p, ブログ項目) */
+/* 3. 本文エリア (メインコンテンツ) の装飾 */
 /* ========================== */
 
 .main-content {
-    /* 【重なり防止】縦書き見出しの幅を避けるための左マージン */
-    margin-left: 80px; 
-    padding: 20px;
-    padding-top: 40px; 
+    /* h1エリアの幅に合わせてマージンを設定 */
+    margin-left: 100px; 
+    padding: 30px 50px; /* 左右の余白を広げてゆったりと */
+    padding-top: 50px; 
+    max-width: 800px; /* 読みやすさのため最大幅を設定 */
 }
 
-/* ブログの項目を区切るためのスタイル */
+/* ブログの項目 (blog-item) の装飾 */
 .blog-item {
-    margin-bottom: 30px; /* 各項目間にスペースを確保 */
-    padding: 15px;
-    border: 1px solid #eeeeee; /* 項目の境界線 */
-    border-radius: 5px;
-    background-color: #fafafa; /* 項目ごとにわずかに背景色を付ける */
+    margin-bottom: 40px; 
+    padding: 25px;
+    /* カードのようなデザインにするための影と背景 */
+    background-color: white; 
+    border-radius: 10px; /* 角を丸く */
+    /* 立体感を出すための繊細な影 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.3s ease-in-out; /* ホバー時のアニメーション準備 */
 }
 
-/* ブログ項目内の見出し p タグに対するスタイル */
+/* ホバー時の装飾（マウスオーバーで少し浮かび上がる） */
+.blog-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ブログ項目内の見出し p タグ (.blog-heading) の装飾 */
 .blog-item .blog-heading {
-    font-size: 1.3em; /* 通常のpより大きく */
-    font-weight: bold; /* 太字 */
-    color: #0077b6; /* 濃い青色で強調 */
-    margin-top: 0; /* 上部のマージンをリセット */
-    margin-bottom: 10px; /* 下部にスペースを確保 */
-    padding-bottom: 5px;
-    border-bottom: 1px dashed #cccccc; /* 見出しと本文の間に点線 */
+    font-size: 1.4em; 
+    font-weight: 600;
+    color: #3f90b5; /* 見出しの色をブランドカラーに合わせる */
+    margin-top: 0; 
+    margin-bottom: 15px; 
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0f2f7; /* 薄い下線 */
 }
