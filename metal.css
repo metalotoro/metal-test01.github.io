@@ -1,5 +1,5 @@
 /*
- * metal.css - おしゃれなブログ風デザイン
+ * metal.css - 最終デザイン（左バー固定、モダンブログ形式）
  */
 
 /* ========================== */
@@ -10,87 +10,66 @@ body {
     /* 背景色をわずかにグレーにして清潔感を出す */
     background-color: #f5f7fa; 
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* モダンなフォント */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     color: #333333; 
 }
 
 /* ========================== */
-/* 1. 基本的な文字サイズ設定 */
+/* 1. 基本的な文字サイズと共通スタイル */
 /* ========================== */
 
-h1 { /* 縦書きエリアで上書きされるため、ここでは主にリセット */ margin: 0; }
+h1 { margin: 0; }
 
 h2 {
-    font-size: 2.2em;
+    font-size: 2.0em; 
     color: #5a6b7c; /* 落ち着いたダークブルー */
-    border-bottom: 3px solid #d4e0eb; /* 太めの優しい下線 */
-    padding-bottom: 15px;
-    margin-bottom: 30px; 
+    border-bottom: 3px solid #d4e0eb; 
+    padding-bottom: 10px; 
+    margin-bottom: 25px; 
     margin-top: 0; 
-    font-weight: 300; /* 細めのフォントウェイトでおしゃれに */
+    font-weight: 300; 
 }
 
 p {
-    font-size: 1.05em; 
-    line-height: 1.7; /* 行間を広げて読みやすくする */
-    margin-top: 1em; 
-    margin-bottom: 1em;
+    font-size: 1.0em; /* 標準の16pxに近づけ、画面に収まりやすくする */
+    line-height: 1.6; 
+    margin-top: 0.8em; 
+    margin-bottom: 0.8em;
 }
 
 
 /* ========================== */
-/* 2. 縦書き見出しエリア (h1) の装飾 */
-/* ========================== */
-
-/*
- * metal.css - 縦書き見出しを回転させない修正版
- */
-
-/* ... (body, h2, p, .main-content などの装飾スタイルは省略) ... */
-
-
-/* ========================== */
-/* 2. 縦書き見出しエリア (h1) の装飾 */
+/* 2. 縦書き見出しエリア (h1) - 固定バー */
 /* ========================== */
 
 .vertical-header-container {
+    /* 左端に固定 */
     position: fixed; 
     top: 0;
     left: 0;
-    background-color: #3f90b5; 
-    width: 70px; 
-    height: 100vh; 
+    
+    background-color: #3f90b5; /* ブランドカラーのような青 */
+    width: 60px; /* バーの幅 */
+    height: 100vh; /* 画面いっぱいの高さ */
+    
     display: flex;
-    /* justify-content: center; を使用すると、文字の行全体を左右中央に配置します */
-    justify-content: center; 
-    /* align-items: center; を使用すると、縦書きの文字列全体を上下中央に配置します */
     align-items: center; 
+    justify-content: center; 
     z-index: 10; 
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
 }
 
 .vertical-header-container h1 {
     color: white; 
-    font-size: 2.4em; 
+    font-size: 2.2em; 
     font-weight: 600; 
-    margin: 0;
     
-    /* ---------------------------------------------------- */
-    /* 【修正ポイント1】縦書きモードを設定 */
-    /* vertical-rl: 縦書き、行が右から左へ流れる (最も一般的な縦書き) */
+    /* 縦書きと90度回転で正立（下から読める状態）にする */
     writing-mode: vertical-rl;
-    
-    /* 【修正ポイント2】回転を完全に削除 */
-    transform: none; 
-    /* ---------------------------------------------------- */
-
-    /* transform: none; を適用すると、文字自体は90度横倒しの状態で表示されます。 */
-    /* これが「回転させない」状態です。 */
+    transform: rotate(90deg); 
     white-space: nowrap; 
     width: fit-content;
 }
-
-/* ... (本文エリアの装飾スタイルは省略) ... */
 
 
 /* ========================== */
@@ -98,38 +77,75 @@ p {
 /* ========================== */
 
 .main-content {
-    /* h1エリアの幅に合わせてマージンを設定 */
-    margin-left: 100px; 
-    padding: 30px 50px; /* 左右の余白を広げてゆったりと */
-    padding-top: 50px; 
-    max-width: 800px; /* 読みやすさのため最大幅を設定 */
+    /* 【重なり防止】h1バーの幅を避けるための左マージン */
+    margin-left: 80px; 
+    padding: 20px 40px; 
+    padding-top: 30px; 
+    max-width: 750px; 
 }
 
-/* ブログの項目 (blog-item) の装飾 */
-.blog-item {
-    margin-bottom: 40px; 
-    padding: 25px;
-    /* カードのようなデザインにするための影と背景 */
-    background-color: white; 
-    border-radius: 10px; /* 角を丸く */
-    /* 立体感を出すための繊細な影 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
-    transition: transform 0.3s ease-in-out; /* ホバー時のアニメーション準備 */
+/* 導入文の装飾 (.section-title) */
+.section-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #3f90b5;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #d4e0eb;
 }
 
-/* ホバー時の装飾（マウスオーバーで少し浮かび上がる） */
-.blog-item:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+/* ========================== */
+/* 4. 新しい情報セクションの装飾 (.info-section) */
+/* ========================== */
+
+.info-section {
+    margin-bottom: 20px; 
+    padding: 15px;
+    border-left: 5px solid #a9c6d8; /* 左側に青いラインを入れて強調 */
+    background-color: #fcfcfc; 
+    border-radius: 4px;
 }
 
-/* ブログ項目内の見出し p タグ (.blog-heading) の装飾 */
-.blog-item .blog-heading {
-    font-size: 1.4em; 
+.info-section .info-heading {
+    font-size: 1.15em;
     font-weight: 600;
-    color: #3f90b5; /* 見出しの色をブランドカラーに合わせる */
+    color: #3f90b5; 
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.info-section .info-detail {
+    font-size: 0.95em; 
+    color: #666666;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* ========================== */
+/* 5. ブログ項目 (blog-item) の装飾 */
+/* ========================== */
+
+.blog-item {
+    margin-bottom: 25px; 
+    padding: 20px; 
+    /* カードデザイン */
+    background-color: white; 
+    border-radius: 8px; 
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog-item:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blog-item .blog-heading {
+    font-size: 1.3em; 
+    font-weight: 600;
+    color: #3f90b5; 
     margin-top: 0; 
-    margin-bottom: 15px; 
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e0f2f7; /* 薄い下線 */
+    margin-bottom: 10px; 
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #e0f2f7; 
 }
