@@ -1,4 +1,4 @@
-/* metal.css の主要な縦書き/回転スタイル部分 */
+/* metal.css の主要な縦書きスタイル部分 */
 
 /* body, h2, p, .main-content など他のスタイルは省略 */
 /* ... */
@@ -12,23 +12,26 @@
     width: 60px; 
     height: 100vh; 
     display: flex;
+    /* align-items: center; を使用すると、縦書きの文字列全体が中央に配置されます */
     align-items: center; 
     justify-content: center; 
     z-index: 10; 
 }
 
-/* <h1>タグ自体に縦書きと回転を適用 */
+/* <h1>タグ自体に縦書きを適用 */
 .vertical-header-container h1 {
     color: white; 
     font-size: 2.0em;
     margin: 0;
     
     /* ---------------------------------------------------- */
-    /* 縦書きの設定 */
+    /* 【修正ポイント1】縦書きモードを vertical-rl に設定 */
+    /* これにより、文字は縦書きになり、行は右から左へ進みます。 */
     writing-mode: vertical-rl;
     
-    /* 180度回転の適用 (文字を下から上に読めるようにする) */
-    transform: rotate(180deg); 
+    /* 【修正ポイント2】180度回転を削除、または無効化 */
+    /* これにより、文字が90度回転した状態（横向き）になります。 */
+    transform: none; 
     /* ---------------------------------------------------- */
 }
 
