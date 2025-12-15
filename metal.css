@@ -87,3 +87,19 @@ p {
     padding: 20px 15px;
     background-color: #ffffff; 
     box-shadow: -4px 0 10px rgba(0, 0,
+                                 }
+
+/* ========================== */
+/* 3. 中央本文エリア (.main-content) */
+/* ========================== */
+
+.main-content {
+    /* 【修正点】左側固定バー (65px) の幅を完全に避け、さらに余白を持たせる */
+    margin-left: 100px; 
+    
+    /* 右側サイドバー (200px) の幅を避ける調整 */
+    margin-right: 230px; 
+    
+    padding: 40px 20px; 
+    max-width: none; 
+}
