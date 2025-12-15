@@ -1,5 +1,5 @@
 /*
- * metal.css - 最終デザイン（左右固定バー、モダンカード形式）
+ * metal.css - 最終統合版：おしゃれな三列レイアウト
  */
 
 /* ========================== */
@@ -7,13 +7,13 @@
 /* ========================== */
 
 body {
-    /* 背景色をより落ち着いた白に近い色に */
+    /* 背景色を微細なグレーで高級感を出す */
     background-color: #f8f9fa; 
     margin: 0;
-    /* フォントをモダンに */
+    /* モダンで視認性の高いフォント */
     font-family: 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif; 
-    color: #343a40; /* テキストカラー */
-    overflow-x: hidden; /* 横スクロールの抑制 */
+    color: #343a40; 
+    overflow-x: hidden; 
 }
 
 /* 共通スタイル */
@@ -21,7 +21,7 @@ h1 { margin: 0; }
 h2 {
     font-size: 2.4em; 
     color: #495057; 
-    border-bottom: 2px solid #e9ecef; 
+    border-bottom: 2px solid #e9ecef; /* 細い下線 */
     padding-bottom: 12px; 
     margin-bottom: 30px; 
     margin-top: 50px; 
@@ -36,22 +36,22 @@ p {
 
 
 /* ========================== */
-/* 1. 左側固定バー (.vertical-header-container) */
+/* 1. 左側固定バー (.vertical-header-container) - 回転なし縦書き */
 /* ========================== */
 
 .vertical-header-container {
-    /* ... 他のスタイルは変更なし ... */
     position: fixed; 
     top: 0;
     left: 0;
-    background-color: #3b5998; 
+    background-color: #3b5998; /* 深みのあるブルー */
     width: 65px; 
     height: 100vh; 
+    
     display: flex;
     align-items: center; 
     justify-content: center; 
     z-index: 100; 
-    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.15); 
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2); /* 影を深める */
 }
 
 .vertical-header-container h1 {
@@ -60,11 +60,9 @@ p {
     font-weight: 700; 
     margin: 0;
     
-    /* 【重要】文字を縦に並べる（初期状態では文字が横倒しになる） */
+    /* 縦書きで文字を並べる */
     writing-mode: vertical-rl;
-    
-    /* 【修正点】横倒しになった文字を、縦向きに戻すために-90度回転させる */
-    /* これにより、文字そのものが縦向きに正立し、全体が上から下に読めるようになります。 */
+    /* 横倒しの文字を縦向きに正立させる */
     transform: rotate(-90deg); 
     
     letter-spacing: 0.1em; 
@@ -72,10 +70,8 @@ p {
 }
 
 
-
-
 /* ========================== */
-/* 2. 右側固定サイドバー (.sidebar-right) */
+/* 2. 右側固定サイドバー (.sidebar-right) - リンクと画像 */
 /* ========================== */
 
 .sidebar-right {
@@ -85,21 +81,97 @@ p {
     width: 200px; 
     height: 100vh;
     padding: 20px 15px;
-    background-color: #ffffff; 
-    box-shadow: -4px 0 10px rgba(0, 0,
-                                 }
+    background-color: #ffffff; /* 白い背景 */
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 90;
+    overflow-y: auto; 
+}
+
+.sidebar-right h3 {
+    color: #3b5998;
+    font-size: 1.1em;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+
+.sidebar-right ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.sidebar-right a {
+    color: #5a6b7c;
+    text-decoration: none;
+    font-size: 0.95em;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.2s;
+}
+.sidebar-right a:hover {
+    color: #3b5998; /* ホバーでブランドカラーに */
+}
+
+.sidebar-right .city-logo {
+    max-width: 100%; 
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+}
+
 
 /* ========================== */
-/* 3. 中央本文エリア (.main-content) */
+/* 3. 中央本文エリア (.main-content) - 左右の固定バーを避ける */
 /* ========================== */
 
 .main-content {
-    /* 【修正点】左側固定バー (65px) の幅を完全に避け、さらに余白を持たせる */
+    /* 【被り解消】左バー (65px) のマージン */
     margin-left: 100px; 
-    
-    /* 右側サイドバー (200px) の幅を避ける調整 */
+    /* 右バー (200px) のマージン */
     margin-right: 230px; 
     
     padding: 40px 20px; 
     max-width: none; 
+}
+
+/* 導入文の装飾 */
+.section-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #343a40; 
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #e9ecef;
+}
+
+/* ========================== */
+/* 4. ブログ項目 (blog-item) - フローティングカード */
+/* ========================== */
+
+.blog-item {
+    margin-bottom: 25px; 
+    padding: 25px; /* パディングを少し調整 */
+    background-color: white; 
+    border-radius: 12px; /* 角丸を強調 */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* 立体的な影 */
+    /* ホバー時のスムーズなアニメーション */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.blog-item:hover {
+    transform: translateY(-8px); /* 浮き上がりを強調 */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* 影をさらに深く */
+}
+
+.blog-item .blog-heading {
+    font-size: 1.4em; /* 見出しを少し大きく */
+    font-weight: 700;
+    color: #3b5998; 
+    margin-top: 0; 
+    margin-bottom: 10px; 
+    padding-bottom: 5px;
+    border-bottom: 3px solid #f0f2f5; 
 }
