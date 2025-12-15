@@ -99,10 +99,12 @@ a:hover {
 .sidebar-right {
     position: absolute;
     top: 0;
-    right: 0;
+    /* 右端にぴったり合わせる */
+    right: 0; 
     width: 350px;
     height: 100%;
-    padding: 60px 40px 40px 40px;
+    /* 修正点: 左右のパディングを増やし、右端ギリギリの要素が見えるように調整 */
+    padding: 60px 50px 40px 40px; 
     background-color: var(--color-bg-dark);
     color: var(--color-text-light);
     z-index: 10;
@@ -115,7 +117,10 @@ a:hover {
 
 /* サイドバー内の要素は傾きを元に戻す */
 .sidebar-right > * {
+    /* 修正点: 傾きを戻すための変換を加える */
     transform: skewX(5deg);
+    /* 修正点: 右端のテキストが隠れないよう、少し左にずらす（任意） */
+    margin-right: -10px; 
 }
 
 /* メインコンテンツの幅調整（サイドバーの幅分を考慮） */
@@ -217,6 +222,9 @@ a:hover {
     margin-bottom: 15px;
     position: relative;
     padding-left: 20px;
+    /* 修正点: テキストが切れないように white-space を設定 */
+    white-space: nowrap; 
+    overflow: visible; /* リンクのテキストが長すぎる場合を考慮 */
 }
 
 .sidebar-right li::before {
@@ -294,6 +302,8 @@ a:hover {
 
     .sidebar-right > * {
         transform: skewX(0); /* 傾きを解除 */
+        margin-right: 0; /* 修正したマージンも解除 */
+        white-space: normal; /* 折り返しを許可 */
     }
     
     .main-content h2 {
