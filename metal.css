@@ -40,13 +40,13 @@ p {
 /* ========================== */
 
 .vertical-header-container {
+    /* ... 他のスタイルは変更なし ... */
     position: fixed; 
     top: 0;
     left: 0;
-    background-color: #3b5998; /* 深みのあるブルー */
+    background-color: #3b5998; 
     width: 65px; 
     height: 100vh; 
-    
     display: flex;
     align-items: center; 
     justify-content: center; 
@@ -60,12 +60,17 @@ p {
     font-weight: 700; 
     margin: 0;
     
-    /* 縦書きを設定し、回転を解除 */
+    /* 【重要】縦書きを設定 */
     writing-mode: vertical-rl;
-    transform: none; 
+    
+    /* 【修正点】90度回転を復活させ、文字を正立させる */
+    /* これにより、文字は正立した状態で上から下に読めます。 */
+    transform: rotate(90deg); 
     
     letter-spacing: 0.1em; 
+    white-space: nowrap; /* 回転時に文字が折り返されないようにする */
 }
+
 
 
 /* ========================== */
