@@ -60,16 +60,17 @@ p {
     font-weight: 700; 
     margin: 0;
     
-    /* 【重要】縦書きを設定 */
+    /* 【重要】文字を縦に並べる（初期状態では文字が横倒しになる） */
     writing-mode: vertical-rl;
     
-    /* 【修正点】90度回転を復活させ、文字を正立させる */
-    /* これにより、文字は正立した状態で上から下に読めます。 */
-    transform: rotate(90deg); 
+    /* 【修正点】横倒しになった文字を、縦向きに戻すために-90度回転させる */
+    /* これにより、文字そのものが縦向きに正立し、全体が上から下に読めるようになります。 */
+    transform: rotate(-90deg); 
     
     letter-spacing: 0.1em; 
-    white-space: nowrap; /* 回転時に文字が折り返されないようにする */
+    white-space: nowrap; 
 }
+
 
 
 
